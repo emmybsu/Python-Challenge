@@ -11,7 +11,8 @@ def PyPoll(election_data):
     county = str(election_data[1])
     candidate = str(election_data[2])
 
-
+    
+    
 # displays header in excel sheet
 with open(election_data_csv) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter= ",")
@@ -25,14 +26,16 @@ with open(election_data_csv) as csv_file:
     num_rows = 0
     for row in csv_reader:
         num_rows +=1
+    
 
-        canList = list(set(candidate):
-        print(canlist)
+        
 
     print('Election Results')
     print('----------------------------')
     print (f'Total Votes: {num_rows} ')
 
+# candidate = list(set(candidate))
+# print(candidate)
 
 
     

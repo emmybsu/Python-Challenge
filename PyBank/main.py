@@ -36,3 +36,15 @@ with open(budget_data_csv) as csv_file:
     print(f'Average Change:  ${(round(sum(list2)/len(list2),2))}') 
     print(f'Greatest Increase in Profits: {The_month}  (${(max(list2))}) ')
     print(f'Greatest Decrease in Profits: {The_month2}  (${(min(list2))}) ')
+
+    with open('PyBank.txt', 'w') as txt:
+        txt.writelines(
+        '----------------------------'
+    'Financial Analysis'
+    '----------------------------'
+    f'Total Months: {len(list1)} '
+    f'Total: ${sum(list1)}'
+    f'Average Change:  ${(round(sum(list2)/len(list2),2))}'
+    f'Greatest Increase in Profits: {The_month}  (${(max(list2))}) '
+    f'Greatest Decrease in Profits: {The_month2}  (${(min(list2))}) '
+        )

@@ -4,7 +4,7 @@ import csv
 budget_data_csv = os.path.join('PyBank', 'Resources', 'budget_data.csv')
   
 with open(budget_data_csv) as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter= ",")
+    csv_reader = csv.reader(csv_file, delimiter = ",")
 
     next(csv_reader)
 
@@ -13,7 +13,9 @@ with open(budget_data_csv) as csv_file:
     num_rows = 0
   
     change_Prof_Loss =[]
+    #actual profits losses
     list1 = []
+    #amount of change between months
     list2 = []
     all_months = []
     

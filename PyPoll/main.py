@@ -21,16 +21,22 @@ with open(election_data_csv) as csv_file:
     print(f'CSV Header: {csv_header}')
 
     next(csv_reader)
+    candidate = []
+    votes = []
+
 
     # Count of Total Votes cast
     num_rows = 0
     for row in csv_reader:
         num_rows +=1
     
-    for row in csv_reader:
-            list1.append(row[2])
-            #all_months.append(row[0])
+        for num_rows in range(2,len(votes[0])):
+            candidate +=1
+
+
+        
     print(row)
+    print(candidate)
         
 
     print('Election Results')
@@ -39,8 +45,8 @@ with open(election_data_csv) as csv_file:
     print('----------------------------')
 
 
-# candidate = list(set(candidate))
-# print(candidate)
+    candidate = list(set(candidate))
+    print(candidate)
 
 
     

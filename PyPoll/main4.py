@@ -45,24 +45,22 @@ with open(election_data_csv) as csv_file:
     print(cand_dict.keys())
     print(cand_dict.values())
     print(cand_dict.items())
-
+    
     candidate = list(set(candidate))
     def func1(my_diction):
         total = 0
         for i in my_diction:
             total += my_diction[i]
+            
         for j in my_diction:
             my_diction[j] =  '{:.1%}'.format((((float)(my_diction[j])/total)))
         return my_diction
     print(func1(cand_dict))
-
+    
     print(candidate) 
     candidate.sort()  
     # for x in candidate:
-    #     print(x)
-    
-  
-
+    #     print(x)   
     print('Election Results')
     print('----------------------------')
     print (f'Total Votes: {num_rows} ')

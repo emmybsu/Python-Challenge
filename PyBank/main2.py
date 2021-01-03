@@ -20,6 +20,7 @@ with open(budget_data_csv) as csv_file:
     all_months = []
     
     for row in csv_reader:
+        print(row)
         list1.append(int(float(row[1])))
         all_months.append(row[0])
     

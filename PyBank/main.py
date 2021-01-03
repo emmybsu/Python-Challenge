@@ -21,6 +21,7 @@ with open(budget_data_csv) as csv_file:
     
     for row in csv_reader:
         list1.append(int(row[1]))
+        
         all_months.append(row[0])
     
 

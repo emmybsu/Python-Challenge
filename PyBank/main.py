@@ -2,7 +2,7 @@ import os
 import csv
 
 budget_data_csv = os.path.join('PyBank', 'Resources', 'budget_data.csv')
-  
+  #open CSV file
 with open(budget_data_csv) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter = ",")
 

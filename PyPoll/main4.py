@@ -9,11 +9,9 @@ with open(election_data_csv) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter= ",")
     
     csv_header = next(csv_reader)
-    print(f'CSV Header: {csv_header}')
+    #print(f'CSV Header: {csv_header}')
 
-    next(csv_reader)
     #list of candidates
-    #candidate_list = 0
     votes = 0
     #list of candidates
     candidate_list = []
@@ -23,7 +21,7 @@ with open(election_data_csv) as csv_file:
     # Count of Total Votes cast
     num_rows = 0
     for row in csv_reader:
-       # print(row)
+  
         num_rows +=1
         
         if row[2] == 'Khan()' or row[2] == 'Khan':
@@ -41,30 +39,51 @@ with open(election_data_csv) as csv_file:
                 cand_dict[row[2]] = 1
             else:
                 cand_dict[row[2]] +=1
-    print(cand_dict['Khan'])
-    print(cand_dict.keys())
-    print(cand_dict.values())
-    print(cand_dict.items())
-    
+
+    #print to terminal
     candidate = list(set(candidate))
-    def func1(my_diction):
-        total = 0
-        for i in my_diction:
-            total += my_diction[i]
-            
-        for j in my_diction:
-            my_diction[j] =  '{:.1%}'.format((((float)(my_diction[j])/total)))
-        return my_diction
-    print(func1(cand_dict))
-    
-    print(candidate) 
-    candidate.sort()  
-    # for x in candidate:
-    #     print(x)   
     print('Election Results')
     print('----------------------------')
     print (f'Total Votes: {num_rows} ')
     print('----------------------------')
-    for key, value in cand_dict.items():
-        print('{}: {}'.format(key, value))
+    #calculate votes for each candidate in terminal
+
+    for i in cand_dict.keys():
+        print((i),  (str(round((cand_dict[i]/ num_rows)* 100, 3)) + '%'), (cand_dict[i]))
+            
     
+
+    #print(candidate) 
+    candidate.sort() 
+
+    winner = ''
+    max_vote = 0
+    for i in cand_dict.keys():
+        if cand_dict[i] > max_vote:
+            winner = i
+            max_vote = cand_dict[i]
+    print('----------------------------')
+    print(winner)
+    print('----------------------------')
+        
+#print to text file
+    filename = open('PyPoll.txt', 'w+')    
+    filename.write('Election Results')
+    filename.write('\n')
+    filename.write('----------------------------')
+    filename.write('\n')
+    filename.write('Total Votes: ' + str(num_rows))
+ 
+    filename.write('\n')
+    filename.write('----------------------------')
+    filename.write('\n')
+    #calculate votes for each candidate in text file
+    for i in cand_dict.keys():
+        filename.write(((i) +": " + (str(round((cand_dict[i]/ num_rows)* 100, 3)) + '%') + " " + '('+ str(cand_dict[i]))+  ')' + ' \n' )
+    filename.write('----------------------------')
+    filename.write('\n')
+    filename.write('Winner: ' + str(winner))
+    filename.write('\n')
+    filename.write('----------------------------')
+    
+
